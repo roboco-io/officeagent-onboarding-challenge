@@ -22,8 +22,7 @@
 
 ### 기술 스택
 
-- **언어:** Python 3.11+
-- **프레임워크:** FastAPI
+- **언어 / 프레임워크:** 자유 (선택 이유를 ARCHITECTURE.md에 설명)
 - **LLM:** Claude Code SDK 또는 Codex CLI (구독 기반, API 키 불필요)
 - 그 외 기술 선택(벡터 DB, 캐시 DB 등)은 자유
 
