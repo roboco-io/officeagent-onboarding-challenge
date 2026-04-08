@@ -30,7 +30,7 @@
 
 1. 이 리포지토리를 포크합니다.
 2. 과제를 구현합니다.
-3. **비공개 리포지토리**로 전환 후 `nextintelligence-ai` 팀을 초대합니다.
+3. **비공개 리포지토리**로 전환 후 [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
 **기한:** 7일
 

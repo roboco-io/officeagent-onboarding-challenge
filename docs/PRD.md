@@ -75,7 +75,7 @@
 ## 제출
 
 - **기한:** 7일
-- **방식:** GitHub 비공개 리포지토리 (`nextintelligence-ai` 팀 초대) 또는 zip 제출
+- **방식:** 포크한 리포지토리를 **비공개로 전환** 후 [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대
 - **필수 포함:** `README.md` (실행 방법 + 아키텍처), `PROMPT_DESIGN.md`
 - AI 코딩 도구 사용 가능. 단, 면접 시 구현 내용에 대한 심층 질문에 답변할 수 있어야 합니다.
 - **사전 준비:** Claude Pro/Max 또는 ChatGPT Pro 구독 (SDK 이용에 필요)
