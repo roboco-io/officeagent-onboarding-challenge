@@ -32,6 +32,6 @@
 2. 과제를 구현합니다.
 3. **비공개 리포지토리**로 전환 후 [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
-**기한:** 7일
+**기한:** 2025년 4월 17일 (목) 23:59 KST
 
 자세한 내용은 [PRD](./docs/PRD.md)를 참고하세요.
