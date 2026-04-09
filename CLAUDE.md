@@ -32,15 +32,32 @@ OfficeAgent BE 채용 과제 — Document Q&A API. 문서를 업로드하면 내
 - `company-policy.txt` — 사내 복리후생 안내 (교육비, 재택근무, 연차 등)
 - `development-guide.md` — 개발 가이드 (코드 리뷰, 브랜치 전략, 배포 프로세스)
 
+## AGENTS.md
+
+`AGENTS.md`는 `CLAUDE.md`의 심볼릭 링크. Codex 등 다른 AI 에이전트도 동일한 지침을 읽을 수 있도록 제공.
+
 ## Retrobot (자동 회고)
 
 - `retrobot/SKILL.md` — AI 에이전트가 읽고 실행하는 KPT 회고 생성 지침
-- `.githooks/post-commit` — 커밋 후 자동으로 에이전트를 호출하여 회고 생성
-- 과제 구현과는 별개의 도구. 과제 진행 과정을 자동 기록하는 용도.
+- `.githooks/post-commit` — 커밋 후 `claude` 또는 `codex` CLI를 호출하여 KPT 회고 자동 생성
+- 커밋 메시지에 "Retrobot"이 포함되면 훅 스킵 (무한 루프 방지)
+- 회고 결과는 `retros/` 디렉토리에 저장되고 자동 커밋됨
+- 과제 구현과는 별개의 도구
 
 ### 설정
 
-리포지토리 클론/생성 후 `npm install`을 실행하면 Husky가 자동으로 git hook을 설정합니다.
+리포지토리 클론/생성 후 git hook을 활성화합니다:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+### 수동 실행
+
+```bash
+claude -p "$(cat retrobot/SKILL.md)"   # Claude Code
+codex "$(cat retrobot/SKILL.md)"       # Codex
+```
 
 ## 평가 비중
 

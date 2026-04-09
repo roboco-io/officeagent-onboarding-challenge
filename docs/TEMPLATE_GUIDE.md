@@ -9,7 +9,7 @@
 ├── README.md                  # 프로젝트 시작 가이드
 ├── CLAUDE.md                  # AI 에이전트(Claude Code) 지침
 ├── AGENTS.md → CLAUDE.md      # CLAUDE.md 심볼릭 링크
-├── package.json               # Husky 의존성 (git hook 설정용)
+├── .githooks/                 # Git hook 디렉토리
 ├── docs/
 │   ├── PRD.md                 # 과제 명세서
 │   └── TEMPLATE_GUIDE.md      # 이 문서
@@ -19,7 +19,7 @@
 ├── retrobot/                  # 자동 회고 시스템
 │   ├── SKILL.md               # AI 에이전트용 회고 생성 지침
 │   └── README.md              # Retrobot 사용법
-└── .husky/
+└── .githooks/
     └── post-commit            # 커밋 후 자동 회고 훅
 ```
 
@@ -59,7 +59,7 @@ AI 에이전트의 작업 로그를 분석하여 KPT(Keep/Problem/Try) 회고를
 
 **동작 흐름:**
 1. 지원자가 `git commit` 실행
-2. Husky의 `post-commit` 훅이 트리거
+2. `.githooks/post-commit` 훅이 트리거
 3. 훅이 `claude` 또는 `codex` CLI를 호출하며 `retrobot/SKILL.md` 지침을 전달
 4. 에이전트가 `~/.claude/projects/` (또는 `~/.codex/`) 로그를 분석
 5. KPT 회고 마크다운을 `retros/`에 생성하고 자동 커밋
@@ -68,13 +68,16 @@ AI 에이전트의 작업 로그를 분석하여 KPT(Keep/Problem/Try) 회고를
 
 **커스터마이징:** `retrobot/SKILL.md`를 편집하여 회고 형식을 자유롭게 변경할 수 있습니다.
 
-### 5. Husky — Git Hook 관리 (`package.json`, `.husky/`)
+### 5. Git Hook 설정 (`.githooks/`)
 
-윈도우/맥 모두에서 git hook이 자동 설정되도록 [Husky](https://typicode.github.io/husky/)를 사용합니다.
+리포지토리에 포함된 `.githooks/` 디렉토리를 git hook 경로로 지정합니다.
 
-- `npm install` 실행 시 `prepare` 스크립트가 Husky를 초기화
-- `.husky/post-commit`에 Retrobot 훅이 등록됨
-- 별도의 `git config` 설정 불필요
+```bash
+git config core.hooksPath .githooks
+```
+
+이 설정은 로컬 git config에 저장되므로, 리포지토리를 클론할 때마다 1회 실행이 필요합니다.
+윈도우/맥/리눅스 모두 동일하게 동작합니다.
 
 ## 시작 순서
 
@@ -85,8 +88,8 @@ AI 에이전트의 작업 로그를 분석하여 KPT(Keep/Problem/Try) 회고를
 git clone https://github.com/<your-id>/officeagent-onboarding-challenge.git
 cd officeagent-onboarding-challenge
 
-# 3. Husky 설정 (Retrobot 활성화)
-npm install
+# 3. Git hook 설정 (Retrobot 활성화)
+git config core.hooksPath .githooks
 
 # 4. 과제 구현 시작
 # ...
