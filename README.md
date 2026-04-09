@@ -29,7 +29,7 @@
 ## Retrobot — 자동 회고
 
 이 프로젝트에는 [Retrobot](./retrobot/README.md)이 포함되어 있습니다.
-`git push`할 때마다 Claude Code / Codex 작업 로그를 분석하여 KPT 회고를 자동 생성합니다.
+`git commit`할 때마다 Claude Code / Codex 작업 로그를 분석하여 KPT 회고를 자동 생성합니다.
 
 **초기 설정 (리포지토리 생성 후 1회):**
 

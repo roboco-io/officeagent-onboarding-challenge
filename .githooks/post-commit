@@ -1,11 +1,16 @@
 #!/bin/sh
-# Retrobot pre-push hook
-# 푸시 전 AI 에이전트를 호출하여 자동 회고를 생성합니다.
+# Retrobot post-commit hook
+# 커밋 후 AI 에이전트를 호출하여 자동 회고를 생성합니다.
+
+# Retrobot이 만든 커밋에서 다시 트리거되지 않도록 방지 (무한 루프 차단)
+LAST_MSG=$(git log -1 --pretty=%s 2>/dev/null)
+if echo "$LAST_MSG" | grep -q "Retrobot"; then
+    exit 0
+fi
 
 SKILL_PATH="retrobot/SKILL.md"
 
 if [ ! -f "$SKILL_PATH" ]; then
-    echo "⚠ Retrobot: SKILL.md를 찾을 수 없습니다."
     exit 0
 fi
 
@@ -25,7 +30,7 @@ fi
 if [ -n "$(git status --porcelain retros/)" ]; then
     git add retros/
     git commit -m "docs(retro): 자동 회고 생성 by Retrobot" --no-verify
-    echo "✅ Retrobot: 회고가 커밋에 포함되었습니다."
+    echo "✅ Retrobot: 회고가 커밋되었습니다."
 else
     echo "ℹ Retrobot: 새로운 회고 없음"
 fi

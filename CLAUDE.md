@@ -32,14 +32,19 @@ OfficeAgent BE 채용 과제 — Document Q&A API. 문서를 업로드하면 내
 - `company-policy.txt` — 사내 복리후생 안내 (교육비, 재택근무, 연차 등)
 - `development-guide.md` — 개발 가이드 (코드 리뷰, 브랜치 전략, 배포 프로세스)
 
-## 유틸리티
+## Retrobot (자동 회고)
 
-- `retrobot/retrobot.py` — Claude Code/Codex 로그 기반 KPT 회고 자동 생성기. 과제 구현과는 별개의 도구.
-  ```bash
-  python retrobot/retrobot.py              # 마지막 24시간 회고
-  python retrobot/retrobot.py --all        # 전체 세션 회고
-  python retrobot/retrobot.py --since 24h  # 기간 지정
-  ```
+- `retrobot/SKILL.md` — AI 에이전트가 읽고 실행하는 KPT 회고 생성 지침
+- `.githooks/post-commit` — 커밋 후 자동으로 에이전트를 호출하여 회고 생성
+- 과제 구현과는 별개의 도구. 과제 진행 과정을 자동 기록하는 용도.
+
+### 필수 설정 (리포지토리 생성 후 1회)
+
+```bash
+git config core.hooksPath .githooks
+```
+
+이 설정 없이는 post-commit 훅이 동작하지 않습니다.
 
 ## 평가 비중
 
