@@ -38,13 +38,9 @@ OfficeAgent BE 채용 과제 — Document Q&A API. 문서를 업로드하면 내
 - `.githooks/post-commit` — 커밋 후 자동으로 에이전트를 호출하여 회고 생성
 - 과제 구현과는 별개의 도구. 과제 진행 과정을 자동 기록하는 용도.
 
-### 필수 설정 (리포지토리 생성 후 1회)
+### 설정
 
-```bash
-git config core.hooksPath .githooks
-```
-
-이 설정 없이는 post-commit 훅이 동작하지 않습니다.
+리포지토리 클론/생성 후 `npm install`을 실행하면 Husky가 자동으로 git hook을 설정합니다.
 
 ## 평가 비중
 

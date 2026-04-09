@@ -34,14 +34,16 @@
 **초기 설정 (리포지토리 생성 후 1회):**
 
 ```bash
-git config core.hooksPath .githooks
+npm install
 ```
+
+Husky가 자동으로 git hook을 설정합니다.
 
 ## 제출 방법
 
 1. 우측 상단 **"Use this template"** → **"Create a new repository"** 클릭
 2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
-3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
+3. `npm install` 실행 (Retrobot 자동 활성화)
 4. 과제를 구현합니다.
 5. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
