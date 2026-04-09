@@ -1,0 +1,17 @@
+#!/bin/sh
+# Retrobot pre-push hook
+# 푸시 전 자동으로 회고를 생성하고 커밋합니다.
+
+echo "🤖 Retrobot: 회고 생성 중..."
+
+# retrobot 실행
+python3 retrobot/retrobot.py --since 24h 2>/dev/null
+
+# 회고 파일이 생성/변경되었으면 자동 커밋
+if [ -n "$(git status --porcelain retros/)" ]; then
+    git add retros/
+    git commit -m "docs(retro): 자동 회고 생성 by Retrobot" --no-verify
+    echo "✅ Retrobot: 회고가 커밋에 포함되었습니다."
+else
+    echo "ℹ Retrobot: 새로운 회고 없음 (로그 미발견 또는 변경 없음)"
+fi

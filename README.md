@@ -26,12 +26,24 @@
 - **LLM:** Claude Code SDK 또는 Codex CLI (구독 기반, API 키 불필요)
 - 그 외 기술 선택(벡터 DB, 캐시 DB 등)은 자유
 
+## Retrobot — 자동 회고
+
+이 프로젝트에는 [Retrobot](./retrobot/README.md)이 포함되어 있습니다.
+`git push`할 때마다 Claude Code / Codex 작업 로그를 분석하여 KPT 회고를 자동 생성합니다.
+
+**초기 설정 (리포지토리 생성 후 1회):**
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## 제출 방법
 
 1. 우측 상단 **"Use this template"** → **"Create a new repository"** 클릭
 2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
-3. 과제를 구현합니다.
-4. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
+3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
+4. 과제를 구현합니다.
+5. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
 **기한:** 2026년 4월 17일 (금) 23:59 KST
 
