@@ -2,7 +2,7 @@
 
 ## 시작하기
 
-이 리포지토리를 **포크**한 후, 아래 PRD에 따라 과제를 구현하세요.
+이 리포지토리를 **Use this template**으로 복사한 후, 아래 PRD에 따라 과제를 구현하세요.
 
 ## 과제 내용
 
@@ -28,9 +28,10 @@
 
 ## 제출 방법
 
-1. 이 리포지토리를 포크합니다.
-2. 과제를 구현합니다.
-3. **비공개 리포지토리**로 전환 후 [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
+1. 우측 상단 **"Use this template"** → **"Create a new repository"** 클릭
+2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
+3. 과제를 구현합니다.
+4. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
 **기한:** 2026년 4월 17일 (금) 23:59 KST
 
