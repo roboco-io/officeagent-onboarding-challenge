@@ -4,9 +4,9 @@
 
 이 리포지토리를 **Use this template**으로 복사한 후, 아래 PRD에 따라 과제를 구현하세요.
 
-> 🚀 **[Use this template — 클릭 한 번으로 본인 계정에 Private 리포 생성](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)**
->
-> (GitHub 로그인 상태에서 위 링크를 누르면 "Create a new repository from officeagent-onboarding-challenge" 페이지로 바로 이동합니다.)
+[![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
+
+GitHub 로그인 상태에서 위 버튼을 누르면 "Create a new repository from officeagent-onboarding-challenge" 페이지로 바로 이동합니다.
 
 ## 과제 내용
 
@@ -43,7 +43,9 @@ git config core.hooksPath .githooks
 
 ## 제출 방법
 
-1. **[Use this template (직접 이동)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)** — 또는 우측 상단 **"Use this template"** → **"Create a new repository"** 클릭
+1. 아래 버튼 클릭, 또는 우측 상단 **"Use this template"** → **"Create a new repository"**:
+
+   [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
 2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
 3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
 4. 과제를 구현합니다.
