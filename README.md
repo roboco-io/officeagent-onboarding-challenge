@@ -1,12 +1,16 @@
 # OfficeAgent BE 채용 과제 — Document Q&A API
 
-## 시작하기 — 3단계
+## 과제 진행 절차
 
 [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
 
-1. 위 버튼 → Owner를 본인 계정으로, **Private** 리포지토리 생성
-2. **[`serithemage`](https://github.com/serithemage)를 Collaborator로 초대** ← **이 초대가 과제 시작 신고입니다**
-3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화) 후 구현 시작
+| # | 단계 | 명령 / 링크 |
+|---|------|------------|
+| 1 | 위 버튼 → Owner를 **본인 계정**으로, **Private** 리포지토리 생성 | [Use this template](https://github.com/roboco-io/officeagent-onboarding-challenge/generate) |
+| 2 | **[`serithemage`](https://github.com/serithemage)를 Collaborator로 초대** ← **이 초대가 과제 시작 신고입니다** | Settings → Collaborators → Add people |
+| 3 | Retrobot(자동 회고) 활성화 | `git config core.hooksPath .githooks` |
+| 4 | 과제 구현 — **첫 커밋 시점부터 168시간 창이 시작됩니다** | 아래 §작업 시간 규칙 |
+| 5 | 마감 전 최종 커밋 push. **별도 제출 연락은 필요 없습니다** (초대가 되어 있으면 저희가 확인합니다) | `git push` |
 
 > ### ⚠️ 초대를 먼저, 코딩은 그다음
 >
@@ -22,7 +26,7 @@
 
 | 항목 | 내용 |
 |------|------|
-| 시작 신고 | **`serithemage` Collaborator 초대** — 첫 커밋 전에 보내주세요 (§시작하기) |
+| 시작 신고 | **`serithemage` Collaborator 초대** — 첫 커밋 전에 보내주세요 (§과제 진행 절차 2단계) |
 | 창 시작 (T0) | 여러분이 작성한 **첫 커밋** 시각 ("Use this template" 생성 커밋은 제외) |
 | 창 종료 | `T0 + 168시간` |
 | **하드 마감** | **2026년 8월 9일 (일) 23:59 KST** — 창을 온전히 쓰려면 늦어도 **8월 2일 23:59에는 시작** |
@@ -67,28 +71,26 @@ PRD에 있지만 지난 라운드에서 자주 빠졌던 항목입니다:
 
 ## Retrobot — 자동 회고
 
-이 프로젝트에는 [Retrobot](./retrobot/README.md)이 포함되어 있습니다.
-`git commit`할 때마다 Claude Code / Codex 작업 로그를 분석하여 KPT 회고를 자동 생성합니다.
+이 프로젝트에는 [Retrobot](./retrobot/README.md)이 포함되어 있습니다. `git commit`할 때마다 Claude Code / Codex 작업 로그를 분석하여 KPT 회고를 자동 생성하고 `retros/`에 저장합니다. 활성화는 §과제 진행 절차 3단계에서 한 번만 하면 됩니다.
 
-**초기 설정 (리포지토리 생성 후 1회):**
+`retros/`는 **필수 제출물**입니다. 회고는 "AI 도구를 어떻게 다뤘고 그 과정에서 무엇을 배웠는가"를 평가하는 사료로 쓰이며, 코드 완성도와는 별개의 축으로 채점됩니다.
 
-```bash
-git config core.hooksPath .githooks
-```
+## 제출 전 체크리스트
 
-## 제출 방법
+절차는 위 §과제 진행 절차를 따르세요. 마감 전 아래를 확인하시면 됩니다.
 
-1. 아래 버튼 클릭, 또는 우측 상단 **"Use this template"** → **"Create a new repository"**:
+- [ ] `serithemage` Collaborator 초대를 보냈다
+- [ ] 첫 커밋으로부터 **168시간 안에** 마지막 커밋을 마쳤다 (마무리 커밋 포함)
+- [ ] `docker compose up` 또는 README에 적은 방법으로 **한 줄 실행**이 된다
+- [ ] README에 적은 명령으로 **테스트가 실행**된다
+- [ ] `ARCHITECTURE.md`에 적은 기술 선택이 실제 구현과 **일치**한다
+- [ ] 필수 산출물이 모두 있다 — `README.md`(실행 + 테스트 실행 방법), `ARCHITECTURE.md`, `PROMPT_DESIGN.md`, `tests/`, `retros/`
+- [ ] 최종 커밋을 push 했다
 
-   [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
-2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
-3. **[`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다** — 과제 시작 신고. 첫 커밋 전에 보내주세요.
-4. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
-5. 과제를 구현합니다. — **첫 커밋 시점부터 168시간 창이 시작됩니다** (위 §작업 시간 규칙)
-6. 마감 전 최종 커밋을 push 합니다. 별도 제출 연락은 필요 없습니다 (초대가 되어 있으면 저희가 확인합니다).
-
-**하드 마감:** 2026년 8월 9일 (일) 23:59 KST
-**작업 시간:** 첫 커밋 + 168시간 (착수 시점 자유, 늦어도 8월 2일 23:59 시작 권장)
-**필수 제출물:** `README.md`(실행 + 테스트 실행 방법), `ARCHITECTURE.md`, `PROMPT_DESIGN.md`, `tests/`, `retros/`
+| | |
+|---|---|
+| **하드 마감** | 2026년 8월 9일 (일) 23:59 KST |
+| **작업 시간** | 첫 커밋 + 168시간 (착수 시점 자유, 늦어도 8월 2일 23:59 시작 권장) |
+| **제출 연락** | 불필요 — 초대가 되어 있으면 저희가 확인합니다 |
 
 자세한 내용은 [PRD](./docs/PRD.md)를 참고하세요.
