@@ -1,12 +1,20 @@
 # OfficeAgent BE 채용 과제 — Document Q&A API
 
-## 시작하기
-
-이 리포지토리를 **Use this template**으로 복사한 후, 아래 PRD에 따라 과제를 구현하세요.
+## 시작하기 — 3단계
 
 [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
 
-GitHub 로그인 상태에서 위 버튼을 누르면 "Create a new repository from officeagent-onboarding-challenge" 페이지로 바로 이동합니다.
+1. 위 버튼 → Owner를 본인 계정으로, **Private** 리포지토리 생성
+2. **[`serithemage`](https://github.com/serithemage)를 Collaborator로 초대** ← **이 초대가 과제 시작 신고입니다**
+3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화) 후 구현 시작
+
+> ### ⚠️ 초대를 먼저, 코딩은 그다음
+>
+> **초대 없이 시작한 과제는 평가할 수 없습니다.** Private 리포라서 초대 전에는 저희가 리포의 존재도, 여러분이 언제 착수했는지도 확인할 수 없기 때문입니다.
+>
+> 작업 시간(168시간)은 여러분의 **첫 커밋**부터 셉니다(아래 §작업 시간 규칙). 초대를 먼저 보내두면 그 시작 시점이 실시간으로 기록되어 서로 다툴 일이 없습니다. 초대는 리포를 만든 직후, **첫 커밋 전에** 보내주세요.
+>
+> 이미 커밋을 시작한 뒤에 초대를 보내셨다면 그것만으로 불이익은 없습니다. 다만 늦어질수록 첫 커밋 시점 확인이 번거로워지니 지금 바로 보내주세요.
 
 ## ⏱ 작업 시간 규칙 — 꼭 먼저 읽으세요
 
@@ -14,6 +22,7 @@ GitHub 로그인 상태에서 위 버튼을 누르면 "Create a new repository f
 
 | 항목 | 내용 |
 |------|------|
+| 시작 신고 | **`serithemage` Collaborator 초대** — 첫 커밋 전에 보내주세요 (§시작하기) |
 | 창 시작 (T0) | 여러분이 작성한 **첫 커밋** 시각 ("Use this template" 생성 커밋은 제외) |
 | 창 종료 | `T0 + 168시간` |
 | **하드 마감** | **2026년 8월 9일 (일) 23:59 KST** — 창을 온전히 쓰려면 늦어도 **8월 2일 23:59에는 시작** |
@@ -73,9 +82,10 @@ git config core.hooksPath .githooks
 
    [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
 2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
-3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
-4. 과제를 구현합니다. — **첫 커밋 시점부터 168시간 창이 시작됩니다** (위 §작업 시간 규칙)
-5. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
+3. **[`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다** — 과제 시작 신고. 첫 커밋 전에 보내주세요.
+4. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
+5. 과제를 구현합니다. — **첫 커밋 시점부터 168시간 창이 시작됩니다** (위 §작업 시간 규칙)
+6. 마감 전 최종 커밋을 push 합니다. 별도 제출 연락은 필요 없습니다 (초대가 되어 있으면 저희가 확인합니다).
 
 **하드 마감:** 2026년 8월 9일 (일) 23:59 KST
 **작업 시간:** 첫 커밋 + 168시간 (착수 시점 자유, 늦어도 8월 2일 23:59 시작 권장)
