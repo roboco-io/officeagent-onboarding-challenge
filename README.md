@@ -8,6 +8,20 @@
 
 GitHub 로그인 상태에서 위 버튼을 누르면 "Create a new repository from officeagent-onboarding-challenge" 페이지로 바로 이동합니다.
 
+## ⏱ 작업 시간 규칙 — 꼭 먼저 읽으세요
+
+**착수 시점은 자유이되, 첫 커밋으로부터 168시간(=24h × 7일) 이내의 커밋만 평가 대상입니다.**
+
+| 항목 | 내용 |
+|------|------|
+| 창 시작 (T0) | 여러분이 작성한 **첫 커밋** 시각 ("Use this template" 생성 커밋은 제외) |
+| 창 종료 | `T0 + 168시간` |
+| **하드 마감** | **2026년 8월 9일 (일) 23:59 KST** — 창을 온전히 쓰려면 늦어도 **8월 2일 23:59에는 시작** |
+| 창 밖 커밋 | 제출 무효는 아니지만 **채점에서 제외**됩니다 (README 정리·오탈자 수정도 예외 없음) |
+| 판정 기준 | `git log`의 committer date. GitHub push 기록과 교차 확인합니다 |
+
+바쁜 주를 피해 원하는 때 시작하시라는 규칙입니다. **창을 다 쓰지 않아도 됩니다** — 3일 만에 제출해도 감점은 없습니다. 다만 마무리 작업까지 168시간 안에 넣어 계획하세요.
+
 ## 과제 내용
 
 **[PRD 바로가기 →](./docs/PRD.md)**
@@ -16,19 +30,31 @@ GitHub 로그인 상태에서 위 버튼을 누르면 "Create a new repository f
 
 ### 평가 역량
 
-| 역량 | 설명 |
-|------|------|
-| BE 설계 | FastAPI 서버 설계, 레이어 분리, 비동기 처리 |
-| RAG | 문서 청킹, 임베딩, 벡터 검색, 답변 생성 |
-| LLM 활용 | Claude Code SDK 또는 Codex CLI 통합 |
-| 캐싱 | LLM 응답 캐시, 유사 질문 처리, 무효화 |
-| 프롬프트 | 프롬프트 설계 및 설계 의도 문서화 |
+| 역량 | 비중 | 설명 |
+|------|-----:|------|
+| RAG | 23% | 문서 청킹, 임베딩, 벡터 검색, 출처 표기, 답변 생성 |
+| BE 설계 | 18% | FastAPI 서버 설계, 레이어 분리, 비동기 처리, 에러 핸들링 |
+| LLM 활용 | 18% | Claude Code SDK 또는 Codex CLI 통합, **스트리밍**, timeout·retry |
+| 캐싱 | 18% | LLM 응답 캐시, 유사 질문 처리, 문서 변경 시 무효화 |
+| 프롬프트 | 13% | 프롬프트 설계 및 설계 의도 문서화 |
+| **테스트** | **10%** | 핵심 3경로(ingestion·retrieval·캐시 무효화) 자동화 테스트 |
+
+**완성도보다 설계 의도와 구현 품질을 우선 평가합니다.** 부분 구현도 평가 대상이며, 미구현 부분은 설계 문서로 대체할 수 있습니다.
 
 ### 기술 스택
 
-- **언어 / 프레임워크:** 자유 (선택 이유를 ARCHITECTURE.md에 설명)
+- **언어 / 프레임워크:** Python 3.11+ / FastAPI
 - **LLM:** Claude Code SDK 또는 Codex CLI (구독 기반, API 키 불필요)
-- 그 외 기술 선택(벡터 DB, 캐시 DB 등)은 자유
+- 그 외 기술 선택(벡터 DB, 캐시 DB, 청킹 전략, 검색 방식)은 자유 — 선택 이유를 `ARCHITECTURE.md`에 설명
+
+### ⚠ 놓치기 쉬운 필수 요건
+
+PRD에 있지만 지난 라운드에서 자주 빠졌던 항목입니다:
+
+- **자동화 테스트** — 핵심 3경로를 덮는 테스트가 **하나도 없으면 불합격**입니다. LLM 호출은 목으로 대체해도 되고, 구독 없이 돌아가면 가산점입니다. 실행 방법을 README에 한 줄 명령으로 적어주세요.
+- **스트리밍 응답** — 답변 전체를 모아 한 번에 반환하는 방식만 있으면 감점입니다.
+- **문서와 코드 일치** — `ARCHITECTURE.md`에 적은 기술 선택과 실제 구현이 달라도 감점됩니다. 도중에 바꿨다면 문서를 고치거나, 바꾼 이유를 남겨주세요 (후자가 오히려 가산점).
+- **캐시 무효화** — 문서가 변경되면 관련 캐시가 실제로 무효화되어야 합니다.
 
 ## Retrobot — 자동 회고
 
@@ -48,9 +74,11 @@ git config core.hooksPath .githooks
    [![Use this template](https://img.shields.io/badge/Use_this_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/roboco-io/officeagent-onboarding-challenge/generate)
 2. Owner를 본인 계정으로, **Private** 리포지토리로 생성합니다.
 3. `git config core.hooksPath .githooks` 실행 (Retrobot 활성화)
-4. 과제를 구현합니다.
+4. 과제를 구현합니다. — **첫 커밋 시점부터 168시간 창이 시작됩니다** (위 §작업 시간 규칙)
 5. [`serithemage`](https://github.com/serithemage)를 Collaborator로 초대합니다.
 
-**기한:** 2026년 4월 17일 (금) 23:59 KST
+**하드 마감:** 2026년 8월 9일 (일) 23:59 KST
+**작업 시간:** 첫 커밋 + 168시간 (착수 시점 자유, 늦어도 8월 2일 23:59 시작 권장)
+**필수 제출물:** `README.md`(실행 + 테스트 실행 방법), `ARCHITECTURE.md`, `PROMPT_DESIGN.md`, `tests/`, `retros/`
 
 자세한 내용은 [PRD](./docs/PRD.md)를 참고하세요.
